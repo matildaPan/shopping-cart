@@ -28,6 +28,8 @@ model Item {
 }
 
 model Sale {
-  id     String  @id @default(cuid())
-  record String?
+  id             String  @id @default(cuid())
+  record         String?
+  totalAmount    Float?
+  discountAmount Float?
 }

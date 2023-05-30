@@ -186,6 +186,8 @@ input ItemCreateInput {
 type Sale {
   id: ID!
   record: JSON
+  totalAmount: Float
+  discountAmount: Float
 }
 
 input SaleWhereUniqueInput {
@@ -197,14 +199,31 @@ input SaleWhereInput {
   OR: [SaleWhereInput!]
   NOT: [SaleWhereInput!]
   id: IDFilter
+  totalAmount: FloatNullableFilter
+  discountAmount: FloatNullableFilter
+}
+
+input FloatNullableFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: FloatNullableFilter
 }
 
 input SaleOrderByInput {
   id: OrderDirection
+  totalAmount: OrderDirection
+  discountAmount: OrderDirection
 }
 
 input SaleUpdateInput {
   record: JSON
+  totalAmount: Float
+  discountAmount: Float
 }
 
 input SaleUpdateArgs {
@@ -214,6 +233,8 @@ input SaleUpdateArgs {
 
 input SaleCreateInput {
   record: JSON
+  totalAmount: Float
+  discountAmount: Float
 }
 
 """

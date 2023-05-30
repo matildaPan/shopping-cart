@@ -77,10 +77,13 @@ export const lists: Lists = {
   Sale: list({
     access: allowAll,
     fields: {
-      record: json(),
+      record: json({ ui: { itemView: { fieldMode: 'hidden' } }}),
+      totalAmount: float(),
+      discountAmount: float()
     },
     db: {
       idField: {kind: "cuid"}
-    }
+    },
+
   }),
 };
