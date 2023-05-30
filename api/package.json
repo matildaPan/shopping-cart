@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "keystone dev",
+    "dev:reset": "keystone dev --reset-db",
     "start": "keystone start",
     "build": "keystone build",
     "postinstall": "keystone build --no-ui --frozen"

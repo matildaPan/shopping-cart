@@ -69,6 +69,11 @@ export const lists: Lists = {
       name: text({ validation: { isRequired: true } }),
       price: float({ validation: { isRequired: true } }),
       inventoryQty: integer({validation: { isRequired: true } }),
+    },
+    ui:{
+      listView: {
+        initialColumns: ['sku', 'name', 'price', 'inventoryQty']
+      }
     }
 
   }),
