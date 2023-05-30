@@ -295,6 +295,7 @@ type Query {
   salesCount(where: SaleWhereInput! = {}): Int
   keystone: KeystoneMeta!
   authenticatedItem: AuthenticatedItem
+  calculateDiscounts(orders: [calculateDiscountsInput]): Discount
 }
 
 union AuthenticatedItem = User
@@ -404,4 +405,14 @@ type KeystoneAdminUISort {
 enum KeystoneAdminUISortDirection {
   ASC
   DESC
+}
+
+type Discount {
+  discountedAmount: Float
+  freeRaspberry: Int
+}
+
+input calculateDiscountsInput {
+  name: String
+  qty: Int
 }

@@ -14,6 +14,8 @@ import { lists } from './schema';
 // when you write your list-level access control functions, as they typically rely on session data
 import { withAuth, session } from './auth';
 import { seedItemData } from './seed-data';
+import { mergeSchemas } from '@graphql-tools/schema';
+import { calculateDiscounts } from './utils/calculateDiscounts';
 
 export default withAuth(
   config({
@@ -39,7 +41,30 @@ export default withAuth(
     },
     lists,
     session,
-
+    extendGraphqlSchema: schema => 
+      mergeSchemas({
+        schemas: [schema],
+        typeDefs: `
+          type Discount {
+            discountedAmount: Float
+            freeRaspberry: Int
+          }
+          input calculateDiscountsInput {
+            name: String
+            qty: Int
+          }
+          type Query {
+            calculateDiscounts(orders: [calculateDiscountsInput]): Discount
+          }
+        `,
+        resolvers: {
+          Query: {
+            calculateDiscounts: (root, {orders}, context) => {
+              return calculateDiscounts({orders})
+            }
+          }
+        }
+      })
 
   })
 );
