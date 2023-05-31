@@ -1,8 +1,0 @@
-{
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@ts-gql"],
-  "rules": {
-    "@ts-gql/ts-gql": "error"
-  },
-  "extends": "next/core-web-vitals"
-}
