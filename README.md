@@ -8,6 +8,13 @@ api service is built using [keystone](https://keystonejs.com)
 cd api
 ```
 
+Install Dependencies
+
+```
+nvm use
+yarn
+```
+
 If it is first time running, seed date before running
 
 ```
@@ -40,6 +47,12 @@ api service is built using [nextjs](https://nextjs.org/)
 
 ```
 cd client
+```
+
+Install Dependencies
+
+```
+yarn
 ```
 
 Run on local machine
